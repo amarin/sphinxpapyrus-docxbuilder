@@ -1,0 +1,4 @@
+six
+docutils
+sphinx
+python-docx
