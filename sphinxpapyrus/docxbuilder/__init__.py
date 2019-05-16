@@ -8,14 +8,15 @@
     :copyright: Copyright 2018 by nakandev.
     :license: MIT, see LICENSE for details.
 """
-
-import os
-from .builder import DocxBuilder
+from sphinx.application import Sphinx
 
 __version__ = '0.1.0'
 
+
 def setup(app):
-    # type: (Sphinx) -> Dict[unicode, Any]
+    """Setup docxbuilder as Sphinx plugin"""
+    assert isinstance(app, Sphinx)
+    from sphinxpapyrus.docxbuilder.builder import DocxBuilder
     app.add_builder(DocxBuilder)
 
     app.add_config_value('docx_documents', [], 'env')
